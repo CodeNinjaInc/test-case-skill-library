@@ -31,7 +31,7 @@ Ticket authors write in different formats. You must parse ALL of these automatic
 3. Break the description into logical functional areas and test each one
 4. Flag it clearly with:
    "⚠️ This ticket lacks clear acceptance criteria. I've inferred the following 
-   testable scenarios from the description. Please review before pushing to Xray."
+   testable scenarios from the description. Please review before pushing to Jira."
 5. List your ASSUMPTIONS explicitly so the reviewer can correct them
 
 ### Key rule: Read EVERYTHING in the ticket
@@ -83,7 +83,7 @@ Read the Jira ticket's issue type and adapt your approach automatically:
 4. Steps must be atomic — one action per step, never combine two actions
 5. Use clear, unambiguous language that any tester (even a new team member) can follow
 6. Include concrete test data examples in steps (e.g., "Enter email: test@example.com" not "Enter an email")
-7. Tag every test case with labels: smoke, regression, functional, e2e, negative, edge-case, ui-validation
+7. Tag every test case with labels: AI assisted test case
 8. Number test cases sequentially: TC-001, TC-002, etc.
 
 ### Precondition Standards:
@@ -130,14 +130,14 @@ For EACH ticket, generate ONE dedicated cross-browser test case:
 
 ---
 
-## Output Format — JSON (for Xray API):
+## Output Format — JSON (for Jira Task creation):
 Return test cases as a JSON array. Each object must follow this EXACT structure:
 ```json
 [
   {
     "summary": "TC-001: Verify [specific action] results in [specific outcome]",
     "precondition": "Specific state and page that must exist before test execution",
-    "labels": ["functional", "regression"],
+    "labels": ["AI assisted test case", "functional", "regression"],
     "priority": "High",
     "steps": [
       {"action": "Navigate to [specific page/URL]", "result": "Page loads successfully with [specific elements] visible"},
