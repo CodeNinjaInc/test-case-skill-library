@@ -150,24 +150,35 @@ Return test cases as a JSON array. Each object must follow this EXACT structure:
 ```json
 [
   {
-    "summary": "TC-001: Verify [specific action] results in [specific outcome]",
+    "testCaseId": "TC-001",
+    "title": "Verify [specific action] results in [specific outcome]",
     "issueType": "Sub-task",
-    "precondition": "Specific state and page that must exist before test execution",
     "labels": ["AI-assisted-test-case", "functional", "regression"],
     "priority": "High",
-    "steps": [
-      {"action": "Navigate to [specific page/URL]", "result": "Page loads successfully with [specific elements] visible"},
-      {"action": "Enter '[specific data]' in the [specific field]", "result": "[Field] accepts input and displays the entered value"},
-      {"action": "Click the [specific button/link]", "result": "[Specific outcome] occurs — [detailed observable result]"}
-    ]
+    "preconditions": "Specific state and page that must exist before test execution",
+    "steps": "1. Navigate to [specific page/URL]\n2. Enter '[specific data]' in the [specific field]\n3. Click the [specific button/link]",
+    "expectedResult": "Specific observable outcome that confirms the test passed — e.g., 'Success toast message appears, user is redirected to Dashboard, new item visible in the list'"
   }
 ]
 ```
 
+**Jira Sub-task Description Format:**
+When creating the Sub-task in Jira, format the description as:
+
+| Field | Value |
+|-------|-------|
+| **Test Case ID** | TC-001 |
+| **Title** | [test case title] |
+| **Preconditions** | [what must be true before testing] |
+| **Steps** | 1. [step one] 2. [step two] 3. [step three] |
+| **Expected Result** | [what should happen when all steps are completed correctly] |
+
 **IMPORTANT:**
 - Issue type is ALWAYS "Sub-task" (never "Task")
+- Summary field = "TC-001: [title]"
+- Description field = the table above
 - Parent ticket is the original ticket being tested
-- Labels use hyphens, NEVER spaces (e.g., `AI-assisted-test-case` not `AI assisted test case`)
+- Labels use hyphens, NEVER spaces
 - Sub-tasks automatically appear under the parent ticket — no manual linking needed
 
 ---
