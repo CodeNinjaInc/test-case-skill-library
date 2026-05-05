@@ -1,6 +1,6 @@
 # Test Case Skill Library 🧪
 
-AI prompt template for fully automated test case generation using Claude + Jira + Xray.
+AI prompt template for fully automated test case generation using Claude
 
 ## How It Works
 1. You type: "Write test cases for PROJ-456" in Claude
